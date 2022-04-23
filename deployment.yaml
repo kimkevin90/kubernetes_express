@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-hello-seobi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kubernetes-hello-seobi
+  template:
+    metadata:
+      labels:
+        app: kubernetes-hello-seobi
+    spec:
+      containers:
+      - name: kubernetes-hello-seobi
+        image: limkevin1313/kubernetes_hello_seobi
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 3000
